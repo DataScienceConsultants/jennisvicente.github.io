@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Jennis Vicente</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    body{
+      margin:0;
+      font-family:'Inter',sans-serif;
+      background:#fdf8f1;
+      color:#1f1b18;
+    }
+
+    nav{
+      padding:20px 40px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:1px solid rgba(0,0,0,0.08);
+      background:white;
+      position:sticky;
+      top:0;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#1f1b18;
+      font-weight:600;
+      margin-left:20px;
+    }
+
+    .hero{
+      padding:100px 20px 60px;
+      text-align:center;
+      max-width:900px;
+      margin:auto;
+    }
+
+    .hero h1{
+      font-family:'Playfair Display',serif;
+      font-size:64px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:20px;
+      color:#6f625a;
+      line-height:1.7;
+    }
+
+    .projects{
+      max-width:1100px;
+      margin:auto;
+      padding:40px 20px 100px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:24px;
+    }
+
+    .card{
+      background:white;
+      border-radius:24px;
+      padding:30px;
+      box-shadow:0 12px 30px rgba(0,0,0,0.06);
+      transition:0.3s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+    }
+
+    .card h2{
+      margin-top:0;
+      font-family:'Playfair Display',serif;
+    }
+
+    .card p{
+      color:#6f625a;
+      line-height:1.7;
+    }
+
+    .card a{
+      display:inline-block;
+      margin-top:16px;
+      text-decoration:none;
+      font-weight:700;
+      color:#9c4f3f;
+    }
+
+    footer{
+      text-align:center;
+      padding:40px;
+      color:#6f625a;
+    }
+
+    @media(max-width:768px){
+      .hero h1{
+        font-size:42px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div><strong>Jennis Vicente</strong></div>
+
+  <div>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Ventures & Projects</h1>
+
+  <p>
+    Beyond writing, I build brands, businesses, creative concepts,
+    and service-based ventures rooted in storytelling, culture,
+    strategy, and connection.
+  </p>
+</section>
+
+<section class="projects">
+
+  <div class="card">
+    <h2>To Love and To Hold</h2>
+
+    <p>
+      Elegant wedding officiant services focused on meaningful,
+      bilingual, and intentional ceremonies.
+    </p>
+
+    <a href="https://ministroboda.com" target="_blank">
+      Visit Website →
+    </a>
+  </div>
+
+  <div class="card">
+    <h2>Aurora Craft Co</h2>
+
+    <p>
+      A honey rum brand blending storytelling, craftsmanship,
+      and Puerto Rican inspiration into a modern experience.
+    </p>
+
+    <a href="#">
+      Coming Soon →
+    </a>
+  </div>
+
+  <div class="card">
+    <h2>Consulting & Data Strategy</h2>
+
+    <p>
+      Business intelligence, analytics, website audits,
+      lead generation, and operational strategy consulting.
+    </p>
+
+    <a href="mailto:jennis.m.vicente@gmail.com">
+      Inquire →
+    </a>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Jennis Vicente
+</footer>
+
+</body>
+</html>
