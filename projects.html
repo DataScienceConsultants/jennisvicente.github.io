@@ -2,176 +2,959 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects | Jennis M. Vicente-Feliciano </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <title>Projects & Consulting | Jennis M. Vicente-Feliciano</title>
+  <meta
+    name="description"
+    content="Explore the consulting services, business intelligence work, digital projects, and entrepreneurial ventures of Jennis M. Vicente-Feliciano."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    body{
-      margin:0;
-      font-family:'Inter',sans-serif;
-      background:#fdf8f1;
-      color:#1f1b18;
+    :root {
+      --cream: #fdf8f1;
+      --warm: #f3e6d4;
+      --rose: #c97865;
+      --terracotta: #9c4f3f;
+      --ink: #1f1b18;
+      --muted: #6f625a;
+      --gold: #c99a48;
+      --white: #ffffff;
+      --border: rgba(31, 27, 24, 0.10);
+      --shadow: 0 22px 60px rgba(31, 27, 24, 0.13);
+      --soft-shadow: 0 12px 35px rgba(31, 27, 24, 0.08);
+      --radius: 26px;
     }
 
-    nav{
-      padding:20px 40px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      border-bottom:1px solid rgba(0,0,0,0.08);
-      background:white;
-      position:sticky;
-      top:0;
+    * {
+      box-sizing: border-box;
     }
 
-    nav a{
-      text-decoration:none;
-      color:#1f1b18;
-      font-weight:600;
-      margin-left:20px;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .hero{
-      padding:100px 20px 60px;
-      text-align:center;
-      max-width:900px;
-      margin:auto;
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at 8% 10%, rgba(201, 154, 72, 0.12), transparent 24%),
+        radial-gradient(circle at 90% 18%, rgba(201, 120, 101, 0.12), transparent 25%),
+        var(--cream);
+      color: var(--ink);
     }
 
-    .hero h1{
-      font-family:'Playfair Display',serif;
-      font-size:64px;
-      margin-bottom:20px;
+    a {
+      color: inherit;
     }
 
-    .hero p{
-      font-size:20px;
-      color:#6f625a;
-      line-height:1.7;
+    .top-banner {
+      padding: 10px 20px;
+      background: var(--ink);
+      color: var(--white);
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 0.04em;
     }
 
-    .projects{
-      max-width:1100px;
-      margin:auto;
-      padding:40px 20px 100px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:24px;
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(253, 248, 241, 0.90);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
     }
 
-    .card{
-      background:white;
-      border-radius:24px;
-      padding:30px;
-      box-shadow:0 12px 30px rgba(0,0,0,0.06);
-      transition:0.3s ease;
+    .nav-inner {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
     }
 
-    .card:hover{
-      transform:translateY(-6px);
+    .brand {
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
     }
 
-    .card h2{
-      margin-top:0;
-      font-family:'Playfair Display',serif;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
     }
 
-    .card p{
-      color:#6f625a;
-      line-height:1.7;
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--muted);
+      white-space: nowrap;
     }
 
-    .card a{
-      display:inline-block;
-      margin-top:16px;
-      text-decoration:none;
-      font-weight:700;
-      color:#9c4f3f;
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--terracotta);
     }
 
-    footer{
-      text-align:center;
-      padding:40px;
-      color:#6f625a;
+    .nav-cta {
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--white) !important;
     }
 
-    @media(max-width:768px){
-      .hero h1{
-        font-size:42px;
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 100px 0 84px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+      gap: 58px;
+      align-items: center;
+    }
+
+    .eyebrow,
+    .section-kicker {
+      color: var(--terracotta);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow span {
+      width: 34px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Playfair Display", serif;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0 0 24px;
+      font-size: clamp(52px, 7vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .highlight {
+      color: var(--terracotta);
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 0 0 32px;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.75;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 23px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--terracotta);
+      color: var(--white);
+      box-shadow: 0 14px 26px rgba(156, 79, 63, 0.22);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.66);
+      color: var(--ink);
+    }
+
+    .hero-card {
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at top right, rgba(201, 154, 72, 0.24), transparent 36%),
+        rgba(255, 255, 255, 0.76);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h2 {
+      margin: 0 0 18px;
+      font-size: 30px;
+    }
+
+    .hero-card p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .capability-list {
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .capability-list li {
+      position: relative;
+      padding: 14px 16px 14px 42px;
+      border-radius: 16px;
+      background: rgba(253, 248, 241, 0.78);
+      font-weight: 700;
+    }
+
+    .capability-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 16px;
+      color: var(--terracotta);
+    }
+
+    section {
+      padding: 88px 0;
+    }
+
+    .soft-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(243, 230, 212, 0.48);
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      margin: 10px 0 16px;
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .services-grid,
+    .case-grid,
+    .ventures-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .service-card,
+    .case-card,
+    .venture-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .service-card {
+      padding: 30px;
+    }
+
+    .card-number {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--white);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .service-card h3,
+    .case-card h3,
+    .venture-card h3 {
+      margin: 0 0 12px;
+      font-size: 25px;
+    }
+
+    .service-card p,
+    .case-card p,
+    .venture-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .service-card ul {
+      padding-left: 18px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .case-card {
+      position: relative;
+      overflow: hidden;
+      padding: 30px;
+    }
+
+    .case-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: linear-gradient(var(--gold), var(--terracotta));
+    }
+
+    .case-label,
+    .venture-label {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: var(--terracotta);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .case-result {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .venture-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 310px;
+      padding: 30px;
+    }
+
+    .venture-card p {
+      flex: 1;
+    }
+
+    .venture-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      color: var(--terracotta);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .venture-link:hover {
+      gap: 12px;
+    }
+
+    .positioning {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .positioning-title {
+      padding: 36px;
+      border-radius: 32px;
+      background: var(--ink);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .positioning-title h2 {
+      margin: 12px 0 0;
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.05;
+    }
+
+    .positioning-copy {
+      padding: 38px;
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .positioning-copy p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .positioning-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-panel {
+      padding: 58px 28px;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 38px;
+      background:
+        radial-gradient(circle at top left, rgba(201, 154, 72, 0.24), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(201, 120, 101, 0.18), transparent 28%),
+        rgba(255, 255, 255, 0.72);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel h2 {
+      margin: 10px auto 16px;
+      max-width: 780px;
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.06;
+    }
+
+    .contact-panel p {
+      max-width: 680px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    footer {
+      padding: 34px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .positioning {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .case-grid,
+      .ventures-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .top-banner {
+        font-size: 12px;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 17px 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 3px;
+      }
+
+      .nav-cta {
+        padding: 9px 14px;
+      }
+
+      .hero {
+        padding: 58px 0 70px;
+      }
+
+      h1 {
+        font-size: 50px;
+      }
+
+      section {
+        padding: 68px 0;
+      }
+
+      .services-grid,
+      .case-grid,
+      .ventures-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card,
+      .positioning-title,
+      .positioning-copy {
+        padding: 27px;
+      }
+
+      .contact-panel {
+        padding: 46px 22px;
       }
     }
   </style>
 </head>
 
 <body>
-
-<nav>
-  <div><strong>Jennis Vicente</strong></div>
-
-  <div>
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-  </div>
-</nav>
-
-<section class="hero">
-  <h1>Ventures & Projects</h1>
-
-  <p>
-    Beyond writing, I build brands, businesses, creative concepts,
-    and service-based ventures rooted in storytelling, culture,
-    strategy, and connection.
-  </p>
-</section>
-
-<section class="projects">
-
-  <div class="card">
-    <h2>To Love and To Hold</h2>
-
-    <p>
-      Elegant wedding officiant services focused on meaningful,
-      bilingual, and intentional ceremonies.
-    </p>
-
-    <a href="https://ministroboda.com" target="_blank">
-      Visit Website →
-    </a>
+  <div class="top-banner">
+    Business intelligence, digital strategy, and entrepreneurial work built with clarity and purpose.
   </div>
 
-  <div class="card">
-    <h2>Aurora Craft Co</h2>
+  <nav>
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Jennis M. Vicente-Feliciano</a>
 
-    <p>
-      A honey rum brand blending storytelling, craftsmanship,
-      and Puerto Rican inspiration into a modern experience.
-    </p>
+      <div class="nav-links">
+        <a href="index.html">Author Home</a>
+        <a href="#services">Services</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#ventures">Ventures</a>
+        <a href="projects.html" aria-current="page">Projects & Consulting</a>
+        <a class="nav-cta" href="mailto:jennis.m.vicente@gmail.com">Start a Conversation</a>
+      </div>
+    </div>
+  </nav>
 
-    <a href="https://www.instagram.com/aurora.craftco/">
-      Visit Website →
-    </a>
-  </div>
+  <main>
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span></span>
+            Data • Strategy • Growth
+          </div>
 
-  <div class="card">
-    <h2>Consulting & Data Strategy</h2>
+          <h1>
+            I turn complex information into
+            <span class="highlight">clearer decisions.</span>
+          </h1>
 
-    <p>
-      Business intelligence, analytics, website audits,
-      lead generation, and operational strategy consulting.
-    </p>
+          <p class="hero-copy">
+            My work brings together business intelligence, analytics, operations,
+            lead generation, digital strategy, and entrepreneurship. I help
+            businesses understand what is happening, identify what needs attention,
+            and build practical systems that support better decisions and stronger growth.
+          </p>
 
-    <a href="mailto:jennis.m.vicente@gmail.com">
-      Inquire →
-    </a>
-  </div>
+          <div class="button-row">
+            <a class="btn btn-primary" href="#services">Explore Services</a>
+            <a class="btn btn-secondary" href="#case-studies">View Selected Work</a>
+          </div>
+        </div>
 
-</section>
+        <aside class="hero-card">
+          <div class="section-kicker">What I Bring</div>
+          <h2>Strategy grounded in real operational experience.</h2>
+          <p>
+            I combine technical analysis with business judgment, practical implementation,
+            and the ability to translate complicated information into something useful.
+          </p>
 
-<footer>
-  © 2026 Jennis M. Vicente-Feliciano • Built with love by Jennis Vicente Group LLC
-</footer>
+          <ul class="capability-list">
+            <li>Business intelligence and dashboards</li>
+            <li>Operational and process improvement</li>
+            <li>Lead generation and market research</li>
+            <li>Website and conversion strategy</li>
+            <li>Business planning and execution</li>
+          </ul>
+        </aside>
+      </div>
+    </header>
 
+    <section id="services" class="soft-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-kicker">Consulting Services</div>
+          <h2>Practical support for businesses that need clarity, structure, and momentum.</h2>
+          <p>
+            Engagements can be focused on a specific problem, a defined project,
+            or an ongoing need for analytical and strategic support.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="card-number">01</div>
+            <h3>Business Intelligence & Dashboards</h3>
+            <p>
+              Transform scattered information into dashboards and reporting tools
+              that make performance, risk, and priorities easier to understand.
+            </p>
+            <ul>
+              <li>KPI and performance dashboards</li>
+              <li>Reporting automation</li>
+              <li>Data validation and cleanup</li>
+              <li>Executive-ready insights</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="card-number">02</div>
+            <h3>Operational Strategy</h3>
+            <p>
+              Identify bottlenecks, simplify workflows, and create systems that
+              help teams work with better information and fewer manual steps.
+            </p>
+            <ul>
+              <li>Process and workflow reviews</li>
+              <li>Inventory and procurement logic</li>
+              <li>Risk and exception monitoring</li>
+              <li>Decision-support systems</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="card-number">03</div>
+            <h3>Lead Generation & Market Research</h3>
+            <p>
+              Build focused prospecting strategies using market research, customer
+              segmentation, list development, and organized outreach planning.
+            </p>
+            <ul>
+              <li>Target customer research</li>
+              <li>Prospect list development</li>
+              <li>Market and competitor research</li>
+              <li>Outreach and CRM structure</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="card-number">04</div>
+            <h3>Website & Conversion Audits</h3>
+            <p>
+              Review how a website communicates, guides visitors, captures leads,
+              and supports the actions the business wants customers to take.
+            </p>
+            <ul>
+              <li>Website experience reviews</li>
+              <li>Booking and inquiry flows</li>
+              <li>Messaging and offer clarity</li>
+              <li>Conversion recommendations</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="card-number">05</div>
+            <h3>Business Planning & Analytics</h3>
+            <p>
+              Connect pricing, costs, operations, market assumptions, and financial
+              goals into a plan the business can actually use.
+            </p>
+            <ul>
+              <li>Pricing and profitability models</li>
+              <li>Operating plans</li>
+              <li>Forecast and scenario analysis</li>
+              <li>Business plan development</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="card-number">06</div>
+            <h3>Custom Digital Projects</h3>
+            <p>
+              Design focused web tools, data products, and prototypes that turn an
+              idea or recurring business problem into a working solution.
+            </p>
+            <ul>
+              <li>Internal tools and prototypes</li>
+              <li>Data-driven web applications</li>
+              <li>Automation concepts</li>
+              <li>Technical project strategy</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="case-studies">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-kicker">Selected Professional Work</div>
+          <h2>Examples of the problems I have helped make easier to see and solve.</h2>
+          <p>
+            These examples reflect the type of analytical, operational, and technical
+            work I bring to consulting engagements.
+          </p>
+        </div>
+
+        <div class="case-grid">
+          <article class="case-card reveal">
+            <span class="case-label">Spend Visibility</span>
+            <h3>Supplier ownership and approval dashboard</h3>
+            <p>
+              Organized supplier ownership, spend tiers, purchase-order approval
+              thresholds, and pending approvals into a clearer decision-making view.
+            </p>
+            <div class="case-result">
+              Experience supporting visibility across more than $200M in spend.
+            </div>
+          </article>
+
+          <article class="case-card reveal">
+            <span class="case-label">Inventory Intelligence</span>
+            <h3>Min/max and shortage-risk monitoring</h3>
+            <p>
+              Developed logic based on product usage to support inventory ordering,
+              flag items at risk of running low, and identify exposure when demand spikes.
+            </p>
+            <div class="case-result">
+              Turned usage patterns into practical risk signals for operations.
+            </div>
+          </article>
+
+          <article class="case-card reveal">
+            <span class="case-label">Procurement Analytics</span>
+            <h3>Purchase-order research tool</h3>
+            <p>
+              Simplified difficult purchase-order research by joining backend data
+              and allowing users to search lists of POs or filter by warehouse, date, and region.
+            </p>
+            <div class="case-result">
+              Supported more than 300 unique monthly users with downloadable results.
+            </div>
+          </article>
+
+          <article class="case-card reveal">
+            <span class="case-label">Forecasting</span>
+            <h3>Forecast accuracy measurement</h3>
+            <p>
+              Built a tool that gathered forecast data, compared it with actual
+              performance, and calculated week-over-week forecast accuracy.
+            </p>
+            <div class="case-result">
+              Created visibility into a performance measure that was not previously tracked.
+            </div>
+          </article>
+
+          <article class="case-card reveal">
+            <span class="case-label">Public Data Product</span>
+            <h3>Project Seismic</h3>
+            <p>
+              Designed a mobile-first earthquake awareness experience that combines
+              live seismic information, location context, map visualization, and tsunami status.
+            </p>
+            <div class="case-result">
+              A public-facing example of data, UX, and risk communication working together.
+            </div>
+          </article>
+
+          <article class="case-card reveal">
+            <span class="case-label">Research Platform</span>
+            <h3>Project Athena</h3>
+            <p>
+              Developed a modular seismic-analysis project focused on activity,
+              depth, energy, observatory thresholds, testing, and historical-data ingestion.
+            </p>
+            <div class="case-result">
+              An evolving example of analytical product development and technical research.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-section">
+      <div class="container positioning reveal">
+        <div class="positioning-title">
+          <div class="section-kicker" style="color: #e8bd75;">How I Work</div>
+          <h2>I do not believe in dashboards that look impressive but change nothing.</h2>
+        </div>
+
+        <div class="positioning-copy">
+          <p>
+            The purpose of data is not to create more reporting. It is to help people
+            notice what matters, understand why it matters, and decide what to do next.
+          </p>
+          <p>
+            My approach starts with the business question, the people using the solution,
+            and the decision the work needs to support. The technology comes after that.
+          </p>
+          <p>
+            That same principle guides my work in lead generation, websites, operations,
+            and business planning: clarify the goal, remove unnecessary friction, and
+            build something people can realistically use.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ventures">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-kicker">Entrepreneurial Ventures</div>
+          <h2>Businesses and concepts I am building beyond consulting.</h2>
+          <p>
+            My entrepreneurial work gives me firsthand experience with the challenges
+            founders face—from branding and pricing to operations, websites, customer acquisition,
+            partnerships, and execution.
+          </p>
+        </div>
+
+        <div class="ventures-grid">
+          <article class="venture-card reveal">
+            <span class="venture-label">Wedding Services</span>
+            <h3>To Love and To Hold</h3>
+            <p>
+              Bilingual wedding officiant services centered on meaningful,
+              intentional ceremonies and a polished client experience.
+            </p>
+            <a class="venture-link" href="https://ministroboda.com" target="_blank" rel="noopener">
+              Visit website →
+            </a>
+          </article>
+
+          <article class="venture-card reveal">
+            <span class="venture-label">Consumer Brand</span>
+            <h3>Aurora Craft Co.</h3>
+            <p>
+              A Puerto Rico-inspired honey rum venture combining product development,
+              premium positioning, storytelling, sourcing, pricing, and launch strategy.
+            </p>
+            <a
+              class="venture-link"
+              href="https://www.instagram.com/auroracraftco/"
+              target="_blank"
+              rel="noopener"
+            >
+              View brand →
+            </a>
+          </article>
+
+          <article class="venture-card reveal">
+            <span class="venture-label">Consulting Company</span>
+            <h3>Jennis Vicente Group LLC</h3>
+            <p>
+              The business behind my consulting, website strategy, analytics,
+              lead-generation, brand-development, and digital-project work.
+            </p>
+            <a
+              class="venture-link"
+              href="https://www.linkedin.com/in/jennisvicente"
+              target="_blank"
+              rel="noopener"
+            >
+              Connect on LinkedIn →
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div class="section-kicker">Work With Me</div>
+          <h2>Have a business problem that needs a clearer path forward?</h2>
+          <p>
+            Tell me what you are trying to improve, what is currently getting in the way,
+            and what a successful result would look like. I can help determine whether the
+            right solution is analytical, operational, digital, or a combination of all three.
+          </p>
+
+          <div class="button-row" style="justify-content: center;">
+            <a class="btn btn-primary" href="mailto:jennis.m.vicente@gmail.com">
+              Start a Conversation
+            </a>
+            <a
+              class="btn btn-secondary"
+              href="https://www.linkedin.com/in/jennisvicente"
+              target="_blank"
+              rel="noopener"
+            >
+              View LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Jennis M. Vicente-Feliciano • Built with love by Jennis Vicente Group LLC
+  </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      revealElements.forEach((element) => observer.observe(element));
+    } else {
+      revealElements.forEach((element) => element.classList.add("visible"));
+    }
+  </script>
 </body>
 </html>
