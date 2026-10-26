@@ -92,6 +92,8 @@
       letter-spacing: -0.02em;
     }
 
+    .menu-toggle { display: none; cursor: pointer; background: transparent; border: 1px solid var(--muted); border-radius: 12px; color: var(--ink); padding: 9px 13px; font: 700 14px 'Inter', sans-serif; }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -598,16 +600,14 @@
     }
 
     @media (max-width: 720px) {
-      .nav-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
+      .nav-inner { flex-wrap: wrap; align-items: center; }
+      .brand { font-size: 18px; max-width: calc(100% - 90px); }
+      .menu-toggle { display: block; margin-left: auto; }
+      .nav-links { display: none; width: 100%; flex-direction: column; align-items: stretch; gap: 0; padding: 6px 0 12px; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 10px; }
+      .nav-links .nav-cta { margin-top: 8px; text-align: center; }
 
-      .nav-links {
-        width: 100%;
-        overflow-x: auto;
-        padding-bottom: 4px;
-      }
 
       h1 {
         font-size: 50px;
@@ -635,7 +635,8 @@
   <nav>
     <div class="nav-inner">
       <a class="brand" href="#top">Jennis M. Vicente-Feliciano</a>
-      <div class="nav-links">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation menu">☰ Menu</button>
+      <div class="nav-links" id="primary-navigation">
         <a href="#book">Book</a>
         <a href="#about">Story</a>
         <a href="#free-guide">Free Guide</a>
@@ -787,6 +788,13 @@
   </footer>
 
   <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('#primary-navigation');
+    const closeMenu = () => { navLinks.classList.remove('open'); menuButton.setAttribute('aria-expanded', 'false'); menuButton.setAttribute('aria-label', 'Open navigation menu'); menuButton.textContent = '☰ Menu'; };
+    menuButton.addEventListener('click', () => { const isOpen = navLinks.classList.toggle('open'); menuButton.setAttribute('aria-expanded', String(isOpen)); menuButton.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu'); menuButton.textContent = isOpen ? '✕ Close' : '☰ Menu'; });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
     const revealElements = document.querySelectorAll('.reveal');
 
     const observer = new IntersectionObserver((entries) => {
