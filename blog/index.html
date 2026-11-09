@@ -18,10 +18,43 @@ main{max-width:1160px;margin:auto;padding:72px 22px 95px}.eyebrow{text-transform
 <nav><div class="inner"><a class="brand" href="/">Jennis M. Vicente-Feliciano</a><div class="links"><a href="/">Home</a><a href="/#book">Book</a><a href="/#about">About Me</a><a href="/blog/" aria-current="page">Blog</a><a href="/#work">Work With Me</a></div></div></nav>
 <main><div class="eyebrow">Essays &amp; perspectives</div><h1>The Mentality <span style="color:var(--terra)">Check</span></h1>
 <p class="intro">Questions about women's rights, public policy, identity, and the expectations we are taught to accept. Thoughtful perspectives grounded in evidence, lived experience, and a willingness to question assumptions.</p>
-<div class="grid">
+<div class="grid" id="article-grid" aria-live="polite">
 <article class="post featured"><img src="https://thementalitycheckhome.wordpress.com/wp-content/uploads/2026/11/women-rights-protest-gayatri-malhotra.jpg" alt="Women's rights protest photograph by Gayatri Malhotra"><div class="body"><div class="eyebrow">Featured article · November 2026</div><h2>Women's Health Under Trump: Who Benefits, and Who Faces Barriers?</h2><p>An examination of reproductive healthcare policies, their stated goals, and what access to care looks like for women facing different choices.</p><a class="read" href="https://thementalitycheck.home.blog/2026/11/07/how-trump-administration-is-helping-women/">Read the article →</a><p style="font-size:12px">Photo: Gayatri Malhotra / Unsplash</p></div></article>
 <article class="post"><div class="body"><div class="eyebrow">September 2024</div><h2>The Mentality Check</h2><p>Explore an earlier post from the original blog archive.</p><a class="read" href="https://thementalitycheck.home.blog/2024/09/18/the-mentality-check/">Read the article →</a></div></article>
 <article class="post"><div class="body"><div class="eyebrow">June 2019</div><h2>Thoughts of An Empowered Woman</h2><p>Visit the beginning of the original WordPress blog.</p><a class="read" href="https://thementalitycheck.home.blog/2019/06/26/the-journey-begins/">Read the article →</a></div></article>
 </div><div class="note">The Mentality Check is part of Jennis M. Vicente-Feliciano's writing portfolio. Full articles remain hosted on WordPress so their original links, publication dates, and archives are preserved.</div>
 </main><footer>© 2026 Jennis M. Vicente-Feliciano · <a href="/">Main website</a> · <a href="/privacy-policy.html">Privacy Policy</a> · <a href="/legal-notice.html">Legal Notice</a></footer>
+
+<script>
+(function(){
+  const grid=document.getElementById('article-grid');
+  const endpoint='https://public-api.wordpress.com/rest/v1.1/sites/thementalitycheck.home.blog/posts/?number=12&fields=ID,date,title,URL,excerpt,featured_image';
+  const textFromHtml=(html)=>{const el=document.createElement('div');el.innerHTML=html||'';return (el.textContent||'').trim();};
+  const short=(s,n)=>s.length>n?s.slice(0,n).trimEnd()+'…':s;
+  fetch(endpoint,{mode:'cors'})
+    .then(r=>{if(!r.ok)throw new Error('Feed unavailable');return r.json();})
+    .then(data=>{
+      if(!Array.isArray(data.posts)||!data.posts.length)throw new Error('No posts');
+      const fragment=document.createDocumentFragment();
+      data.posts.forEach((post,i)=>{
+        if(!post.URL||!/^https:\/\//i.test(post.URL))return;
+        const card=document.createElement('article');
+        card.className='post'+(i===0&&post.featured_image?' featured':'');
+        if(i===0&&post.featured_image&&/^https:\/\//i.test(post.featured_image)){
+          const img=document.createElement('img');img.src=post.featured_image;img.alt='Featured image for '+textFromHtml(post.title);img.loading='lazy';card.appendChild(img);
+        }
+        const body=document.createElement('div');body.className='body';
+        const meta=document.createElement('div');meta.className='eyebrow';
+        const d=new Date(post.date);meta.textContent=isNaN(d.getTime())?'Article':d.toLocaleDateString('en-US',{month:'long',year:'numeric'});
+        const heading=document.createElement('h2');
+        const link=document.createElement('a');link.href=post.URL;link.textContent=textFromHtml(post.title);link.style.textDecoration='none';heading.appendChild(link);
+        const excerpt=document.createElement('p');excerpt.textContent=short(textFromHtml(post.excerpt),240);
+        const read=document.createElement('a');read.className='read';read.href=post.URL;read.textContent='Read the article →';
+        body.append(meta,heading,excerpt,read);card.appendChild(body);fragment.appendChild(card);
+      });
+      if(fragment.childNodes.length)grid.replaceChildren(fragment);
+    })
+    .catch(()=>{ /* Preserve the original article links if WordPress cannot be reached. */ });
+})();
+</script>
 </body></html>
