@@ -554,7 +554,67 @@
         padding: 46px 22px;
       }
     }
-  </style>
+  
+/* Shared site navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(253, 248, 241, 0.78);
+      border-bottom: 1px solid rgba(31, 27, 24, 0.08);
+    }
+
+    .nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .menu-toggle { display: none; cursor: pointer; background: transparent; border: 1px solid var(--muted); border-radius: 12px; color: var(--ink); padding: 9px 13px; font: 700 14px 'Inter', sans-serif; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    .nav-cta {
+      background: var(--ink);
+      color: var(--white) !important;
+      padding: 10px 15px;
+      border-radius: 999px;
+      box-shadow: var(--soft-shadow);
+    }
+
+
+@media(max-width:720px){.nav-inner{flex-wrap:wrap;align-items:center}.brand{font-size:18px;max-width:calc(100% - 90px)}.menu-toggle{display:block;margin-left:auto}.nav-links{display:none;width:100%;flex-direction:column;align-items:stretch;gap:0;padding:6px 0 12px}.nav-links.open{display:flex}.nav-links a{padding:12px 10px}.nav-links .nav-cta{margin-top:8px;text-align:center}}
+</style>
 </head>
 
 <body>
@@ -564,15 +624,17 @@
 
   <nav>
     <div class="nav-inner">
-      <a class="brand" href="index.html">Jennis M. Vicente-Feliciano</a>
-
-      <div class="nav-links">
-        <a href="index.html">Author Home</a>
-        <a href="#services">Services</a>
-        <a href="#case-studies">Case Studies</a>
-        <a href="#ventures">Ventures</a>
-        <a href="projects.html" aria-current="page">Projects & Consulting</a>
-        <a class="nav-cta" href="mailto:jennis.m.vicente@gmail.com">Start a Conversation</a>
+      <a class="brand" href="/#top">Jennis M. Vicente-Feliciano</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation menu">☰ Menu</button>
+      <div class="nav-links" id="primary-navigation">
+        <a href="/#top">Home</a>
+        <a href="/#free-guide">Free Guide</a>
+        <a href="/#book">Book</a>
+        <a href="/#about">About Me</a>
+        <a href="/#work">Work With Me</a>
+        <a href="/projects.html" aria-current="page">Projects</a>
+        <a href="/blog/">Blog</a>
+        <a class="nav-cta" href="https://www.paypal.com/ncp/payment/JXY34KQ3FV8SQ">Buy Signed Copy</a>
       </div>
     </div>
   </nav>
@@ -933,7 +995,7 @@
 
   <footer>
     © 2026 Jennis M. Vicente-Feliciano • Built with ♥️ by Jennis Vicente Group LLC<br>
-    <a href="privacy-policy.html">Privacy Policy</a> · <a href="legal-notice.html">Legal Notice</a>
+    <a href="/privacy-policy.html">Privacy Policy</a> · <a href="/legal-notice.html">Legal Notice</a>
   </footer>
 
   <script>
@@ -957,5 +1019,5 @@
       revealElements.forEach((element) => element.classList.add("visible"));
     }
   </script>
-</body>
+<script>(function(){const b=document.querySelector('.menu-toggle'),m=document.getElementById('primary-navigation');if(!b||!m)return;b.addEventListener('click',()=>{const open=m.classList.toggle('open');b.setAttribute('aria-expanded',String(open));b.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');b.textContent=open?'✕ Close':'☰ Menu';});m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='☰ Menu';}));})();</script></body>
 </html>
